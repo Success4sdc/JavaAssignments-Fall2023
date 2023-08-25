@@ -1,15 +1,22 @@
+//Filename IntegerDemo.java
+//Written by Sandi Cook
+//Written on August 25, 2023
+
 public class IntegerDemo {
     
 public static void main(String[] args) {
-int anInt = 12;
+int anInt = 1234;
 byte aByte = 12;
-short aShort = 12;
-long aLong = 12;
+short aShort = 12345;
+long aLong = 1234567890987654321L;
+int anotherInt = anInt + 1000000;
+
+
 
 System.out.println("The int is " + anInt);
 System.out.println("The byte is " + aByte);
 System.out.println("The short is " + aShort);
 System.out.println("The long is " + aLong);
-    
+System.out.println("Another int is " + anotherInt);    
 }
 }

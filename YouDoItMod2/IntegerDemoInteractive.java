@@ -14,7 +14,7 @@ public class IntegerDemoInteractive {
         long aLong;       ;
 
 
-        Scanner input = new Scanner(System.in);
+        try (Scanner input = new Scanner(System.in)) {
 
         System.out.print("Please enter an integer >> "); 
         anInt = input.nextInt();
@@ -30,4 +30,5 @@ public class IntegerDemoInteractive {
         System.out.println("The short is " + aShort);
         System.out.println("The long is " + aLong);
 }
+        }
 }

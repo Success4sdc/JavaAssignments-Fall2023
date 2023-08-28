@@ -26,8 +26,10 @@ public class IntegerDemoInteractiveWithName {
         System.out.print("Please enter a long integer >> "); 
         aLong = input.nextLong();
 
-        System.out.print("Please enter your name >> "); 
-        name = input.nextLine();
+        do {
+            System.out.print("Please enter your name >> "); 
+            name = input.nextLine();
+        } while (name.isEmpty());
         
 	
         System.out.println("The int is " + anInt);

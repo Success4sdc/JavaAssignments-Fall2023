@@ -1,3 +1,10 @@
+// Filename: YummyMotto.java
+// Written by Sandi Cook
+// Written on September 3, 2023
+
+/*
+* Purpose: 
+*/
 public class YummyMotto {
 
   public static void main(String[] args) {

@@ -1,3 +1,19 @@
+// Filename: YummyEventPrice.java
+// Written by Sandi Cook
+// Written on September 3, 2023
+
+/*
+* Purpose: This program calculates the price of a catering event for Yummy Food Company.
+*
+* Description:
+* The program first declares a `Scanner` object to read user input.
+* It then prints the company motto using the `printMotto()` method.
+* Next, the program prompts the user for the number of guests.
+* The program then calculates the total price by multiplying the number of guests by the price per guest.
+* The program then checks if the event is a large event by comparing the number of guests to the cutoff value of 50.
+* Finally, the program displays the results, including the number of guests, the price per guest, the total price, and whether the event is a large event.
+*/
+
 import java.util.Scanner;
 
 public class YummyEventPrice {

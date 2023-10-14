@@ -1,46 +1,66 @@
-/**
- * Filename: Event.java
- * Written by: Sandi Cook
- * Date: October 4, 2023
- * Description: Yummy Catering provides meals for parties and special events.
- *              The Event class holds catering event information, including event number,
- *              number of guests, price, contact phone number, and event type.
- *              It provides methods to set and retrieve these attributes, as well as
- *              additional functionality for event type management.
- */
+// Filename: Event.java
+// Author: Sandi Cook
+// Date: October 11, 2023
+// Purpose: This class represents events catered by Yummy Catering. 
+// It stores information about the event, including an event number, 
+// contact phone number, and event type. It also provides methods to 
+// set and retrieve this information while enforcing certain constraints 
+// on data validity.
 
 public class Event {
-    public static final double LOWER_PRICE_PER_GUEST = 32.0;
-    public static final double HIGHER_PRICE_PER_GUEST = 35.0;
-    public static final int CUTOFF_VALUE = 50;
-
-    // New field for event type and constant event type names
-    private int eventType;
-    private static final String[] EVENT_TYPE_NAMES = {"wedding", "baptism", "birthday", "corporate", "other"};
-
     private String eventNumber;
-    private int numberOfGuests;
-    private double price;
-    private String phoneNumber;
+    private String contactPhoneNumber;
+    private int eventType;
 
-    // Set the event type based on a numeric value
-    public void setEventType(int eventType) {
-        if (eventType >= 0 && eventType < EVENT_TYPE_NAMES.length) {
-            this.eventType = eventType;
+    // Constants for event types
+    private static final String[] EVENT_TYPES = {"wedding", "baptism", "birthday", "corporate", "other"};
+
+    public Event() {
+        // Initialize event number, contact phone number, and event type to default values
+        this.eventNumber = "A000";
+        this.contactPhoneNumber = "0000000000";
+        this.eventType = 4; // Default to "other"
+    }
+
+    // Method to set the event number
+    public void setEventNumber(String eventNumber) {
+        // Check if the argument is a valid event number
+        if (eventNumber.matches("^[A-Za-z][0-9]{3}$")) {
+            // Force the initial letter to uppercase
+            this.eventNumber = eventNumber.substring(0, 1).toUpperCase() + eventNumber.substring(1);
         } else {
-            this.eventType = EVENT_TYPE_NAMES.length - 1; // Set to "other" if out of bounds
+            // If not valid, set it to "A000"
+            this.eventNumber = "A000";
         }
     }
 
-    // Get the numeric event type
-    public int getEventType() {
-        return this.eventType;
+    // Method to set the contact phone number
+    public void setContactPhoneNumber(String contactPhoneNumber) {
+        // Remove any non-digit characters
+        String digitsOnly = contactPhoneNumber.replaceAll("[^0-9]", "");
+
+        // Check if the resulting string is 10 digits long
+        if (digitsOnly.length() == 10) {
+            this.contactPhoneNumber = digitsOnly;
+        } else {
+            this.contactPhoneNumber = "0000000000";
+        }
     }
 
-    // Get the event type name based on the numeric event type
-    public String getEventTypeName() {
-        return EVENT_TYPE_NAMES[this.eventType];
+    // Method to set the event type
+    public void setEventType(int eventType) {
+        if (eventType >= 0 && eventType < EVENT_TYPES.length) {
+            this.eventType = eventType;
+        } else {
+            // If eventType is out of bounds, set it to "other"
+            this.eventType = 4;
+        }
     }
 
-    // ... (rest of the Event class remains unchanged)
+    // Method to get the event type as a String
+    public String getEventType() {
+        return EVENT_TYPES[eventType];
+    }
+
+    // Other methods and constructors as needed
 }
